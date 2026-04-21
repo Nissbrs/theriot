@@ -1,0 +1,766 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- ESTRUCTURA DEL HEADER --- */
+header {
+    background-color: #121212;
+    border-bottom: 3px solid #6F1D1B;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.right {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- ESTILOS DEL LOGO --- */
+.logoThe {
+    font-size: 2rem;
+    color: #E5E5E5;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.logoRiot {
+    color: #B91C1C;
+}
+
+.logoThe:hover {
+    text-shadow: 2px 2px #B91C1C;
+}
+
+.logoThe:hover .logoRiot {
+    color: #FACC15;
+}
+
+/* --- NAVBAR Y MENÚ --- */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.link {
+    color: #FFE6A7;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    transition: color 0.1s ease;
+    position: relative;
+}
+
+.link:hover { color: #FACC15; }
+
+.link::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 3px; bottom: 0; left: 0;
+    background-color: #FACC15;
+    transition: width 0.2s ease;
+}
+
+.link:hover::after { width: 100%; }
+
+/* --- BOTONES HEADER --- */
+.botones {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login, .cesta {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFE6A7;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    font-family: Impact, sans-serif;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+.login:hover{
+    color: #FACC15;
+    transform: rotate(-3deg);
+    /* Efecto del login inclinado cuando pasa el raton por encima */
+}
+
+.cesta {
+    font-size: 1.8rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.bin-count {
+    background-color: #B91C1C;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    position: absolute;
+    bottom: -5px; right: -8px;
+    border: 2px solid #121212;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- MAIN & HERO --- */
+main {
+    background: linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(185, 28, 28, 0.2) 100%);
+    min-height: 80vh; 
+    padding-top: 120px;
+    text-align: center;
+}
+
+.hero {
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    color: #B91C1C;
+    text-transform: uppercase;
+}
+
+.hero h1:hover{
+    text-shadow: 2px 2px #FFE6A7;
+}
+
+.hero p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.shop {
+    background-color: #121212;
+    color: #FFE6A7;
+    padding: 0.8rem 1.8rem;
+    font-family: Impact, sans-serif;
+    font-size: 1.4rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+    clip-path: polygon(5% 0, 100% 4%, 96% 100%, 0 95%); /*Logra ese efecto cortado para darle un estilo único a la página*/
+    transition: 0.2s;
+}
+
+.shop:hover {
+    background-color: #FACC15;
+    color: #121212;
+    transform: scale(1.05) rotate(2deg);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- SECCIÓN PRODUCTOS --- */
+.productos-secccion {
+    padding: 100px 10%;
+}
+
+.secccion-header {
+    margin-bottom: 4rem;
+    border-left: 8px solid #B91C1C;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.secccion-title {
+    font-size: 35px;
+    color: #E5E5E5;
+    line-height: 0.9;
+}
+
+/* --- GRID DE PRODUCTOS --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.grid-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    position: relative;
+    padding: 15px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Corte irregular en el borde inferior */
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+
+.grid-card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    border-color: #FACC15;
+    box-shadow: 10px 10px 0px #B91C1C;
+}
+
+/* --- ETIQUETA NEW --- */
+.etiqueta {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #FACC15;
+    color: #121212;
+    padding: 5px 15px;
+    font-size: 1.2rem;
+    z-index: 5; /* la etiqueta se posiciona encima  */
+    transform: rotate(15deg);
+    border: 2px solid #121212;
+}
+
+/* --- CONTENEDOR DE PRODUCTOS --- */
+.contenedor-imagen {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #000;
+    border: 2px solid #121212;
+}
+
+.contenedor-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2); /* Crea un degradado gris que desaparece con el hover  */
+    transition: filter 0.4s ease, transform 0.4s ease, opacity 0.3s ease;
+}
+
+.contenedor-imagen:hover img {
+    filter: grayscale(0) contrast(1);
+    transform: scale(1.1);
+}
+
+/* --- INFO DE PRODUCTOS --- */
+.produInfo {
+    padding: 20px 0;
+    text-align: left;
+}
+
+/* --- NUEVOS ESTILOS PARA SELECTORES DE COLOR --- */
+/* Colores base para los selectores de camiseta */
+.dot-red {
+    background-color: #B91C1C;
+}
+
+.dot-yellow {
+    background-color: #ffd900;
+}
+
+.dot-purple {
+    background-color: #6D28D9;
+}
+
+.dot-green {
+    background-color: #067410;
+}
+
+.dot-orange {
+    background-color: #EA580C;
+}
+
+.dot-blue {
+    background-color: #084294;
+}
+
+.dot-black{
+    background-color: #000;
+}
+
+.dot-white{
+    background-color: white;
+}
+
+.color-selector {
+    display: flex;
+    gap: 12px;
+    margin: 10px 0 15px 0;
+}
+
+.color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #333;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* Efecto cuando el color está seleccionado */
+.color-dot.active {
+    border-color: #FACC15;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.4);
+}
+
+.color-dot:hover {
+    transform: scale(1.2);
+    border-color: #E5E5E5;
+}
+
+/* Tooltip sencillo al pasar el ratón */
+.color-dot::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: #FACC15;
+    opacity: 0;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.color-dot:hover::after {
+    opacity: 1;
+}
+
+.produName {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.produMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.produPrice {
+    font-size: 1.5rem;
+    color: #B91C1C;
+}
+
+/* Botón adaptado al estilo global */
+.grid-card .punk-btn {
+    background: #121212;
+    color: #E5E5E5;
+    border: none;
+    padding: 8px 15px;
+    font-family: Impact, sans-serif;
+    cursor: pointer;
+    clip-path: polygon(0 15%, 100% 0, 95% 100%, 5% 85%);
+    transition: 0.2s;
+}
+
+.grid-card .punk-btn:hover {
+    background: #FACC15;
+    color: #121212;
+    transform: scale(1.1);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- MODAL CARRITO --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95); /* Más oscuro para resaltar el modal */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #E5E5E5; /* Fondo claro para contraste "papel" */
+    border: 5px solid #B91C1C;
+    width: 90%;
+    max-width: 450px;
+    padding: 2.5rem;
+    position: relative;
+    z-index: 2001;
+    box-shadow: 10px 0px 5px #121212;
+    color: #121212;
+}
+
+.modal-title {
+    font-family: Impact, sans-serif;
+    font-size: 2.5rem;
+    color: #121212;
+    text-transform: uppercase;
+    border-bottom: 4px solid #6F1D1B;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: #121212;
+    color: #FACC15;
+    padding: 5px 15px;
+    text-decoration: none;
+    font-family: Impact, sans-serif;
+    font-size: 1.2rem;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: #B91C1C;
+    color: white;
+    transform: scale(1.1);
+}
+
+.cart-items {
+    margin: 20px 0;
+    min-height: 100px;
+    border-left: 3px solid #121212;
+    padding-left: 15px;
+}
+
+.empty-msg {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.cart-footer {
+    border-top: 2px dashed #121212;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-footer .total {
+    font-size: 2rem;
+    font-family: Impact, sans-serif;
+    color: #B91C1C;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+/* Botón de compra adaptado al estilo de la tienda */
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #121212;
+    color: #FACC15;
+    border: none;
+    font-family: Impact, sans-serif;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    /* Inclinación similar al botón 'Hazte con la tuya' */
+    clip-path: polygon(5% 0, 100% 4%, 96% 100%, 0 95%);
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #FACC15;
+    color: #121212;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(185, 28, 28, 0.4);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- SECCION DEL LABORATORIO --- */
+/* Expande el modal para el laboratorio */
+.lab-modal {
+    max-width: 800px !important; 
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.preview-area {
+    position: relative;
+    background: #000;
+    border: 2px solid #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.preview-area img#tshirt-preview {
+    width: 100%;
+    filter: none; /* Elimina el filtro para ver el color real */
+}
+
+.logo-on-shirt {
+    position: absolute;
+    top: 35%;
+    width: 80px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.controls-area {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls-area h4 {
+    font-size: 0.9rem;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.personal p{
+    color: #333;
+    font-size: 12px;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 600px) {
+    .lab-grid { grid-template-columns: 1fr; }
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- ALERTA --- */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.punk-toast {
+    background: #121212;
+    color: #FACC15;
+    border-left: 5px solid #B91C1C;
+    padding: 15px 25px;
+    margin-top: 10px;
+    font-family: Impact, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 0px #B91C1C;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.punk-toast.fade-out {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- SECCION CARACTERÍSTICAS --- */
+.features-section {
+    padding: 60px 10%;
+    margin-top: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background: #1a1a1a;
+    padding: 30px 20px;
+    border: 2px solid #333;
+    transition: 0.3s;
+    /* Corte irregular opuesto a las cartas de producto */
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+}
+
+.feature-card:hover {
+    border-color: #B91C1C;
+    transform: translateY(-5px);
+    background: #222;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-card h4 {
+    color: #FACC15;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.feature-card p {
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #E5E5E5;
+    line-height: 1.4;
+}
+
+/* Ajuste para que no se pegue al footer */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .feature-card {
+        clip-path: none; /* Mejor legibilidad en móviles */
+        margin-bottom: 10px;
+    }
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #121212;
+    border-top: 5px solid #B91C1C;
+    padding: 60px 0 20px 0;
+    margin-top: 100px;
+    position: relative;
+    /* Corte sutil en la parte superior del footer */
+    clip-path: polygon(0 1%, 100% 0, 100% 100%, 0 100%);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-title {
+    color: #FACC15;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #B91C1C;
+    display: inline-block;
+}
+
+.footer-tagline {
+    font-family: Arial, sans-serif;
+    color: #FFE6A7;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.contact-info p {
+    font-family: Arial, sans-serif;
+    color: #E5E5E5;
+    font-size: 0.95rem;
+}
+
+/* Botones de Redes Sociales */
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-btn {
+    background: #E5E5E5;
+    color: #121212;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-family: Impact, sans-serif;
+    font-size: 1.1rem;
+    width: fit-content;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #FACC15;
+    transform: translateX(10px) rotate(-2deg);
+    color: #121212;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    border-top: 1px dashed #333;
+    padding-top: 20px;
+    color: #6F1D1B;
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .main-footer {
+        clip-path: none; /* Quitamos el corte en móvil para evitar problemas de visualización */
+    }
+    .footer-container {
+        text-align: center;
+    }
+    .footer-title {
+        align-self: center;
+    }
+    .social-btn {
+        align-self: center;
+    }
+}

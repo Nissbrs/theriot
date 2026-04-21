@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Riot: Tus camisetas personalizadas</title>
+        <link rel="icon" type="image/png" href="img/esqueleto.png">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/script.js" defer></script>
+
+    </head>
+
+    <body>
+
+        <header>
+            <div class="right">
+                <a href="#" class="logoThe">THE<span class="logoRiot">RIOT</span></a>
+                <nav class="navbar">
+                    <ul class="menu">
+                        <li><a href="#inicio" class="link">INICIO</a></li>
+                        <li><a href="#productos" class="link">PRODUCTOS</a></li>
+                        <li><a href="#crear" class="link">CREACIONES</a></li>
+                    </ul>
+                </nav>
+                <div class="botones">
+                    <button class="login" title="Entrar al bando">LOGIN</button>
+                    <a href="#cart-modal" class="cesta" title="Ver recolección">
+                        <span>🛒</span><span class="bin-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- SECCION DE LA CABECERA DEL BODY -->
+            <section class="hero">
+                <h1>STAY CREATIVE</h1>
+                <p>Tu underworld de camisetas personalizadas.</p>
+                <a href="#productos" class="shop">HAZTE CON LA TUYA</a>
+            </section>
+
+
+            <!-- SECCION DE LAS TARJETAS DE PRODUCTOS -->
+            <section id="productos" class="productos-secccion">
+                <div class="secccion-header" href="#productos">
+                    <h3 class="secccion-title">NUESTROS PRODUCTOS</h3>
+                </div>
+
+                <div class="grid">
+                    <article class="grid-card" data-id="neo">
+                        <div class="contenedor-imagen">
+                            <img src="img/rojo.png" alt="NEO STYLE">
+                        </div>
+                        <div class="produInfo">
+                            <h3 class="produName">NEO STYLE</h3>
+                            
+                            <div class="color-selector">
+                                <span class="color-dot dot-red active" data-color="original" ></span>
+                                <span class="color-dot dot-yellow" data-color="alt" title="Variante"></span>
+                            </div>
+
+                            <div class="produMeta">
+                                <span class="produPrice">28.99€</span>
+                                <button class="punk-btn">AÑADIR</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="grid-card" data-id="urban">
+                        <div class="etiqueta">NEW</div>
+                        <div class="contenedor-imagen">
+                            <img src="img/violeta.png" alt="URBAN CHAOS">
+                        </div>
+                        <div class="produInfo">
+                            <h3 class="produName">URBAN CHAOS</h3>
+
+                            <div class="color-selector">
+                                <span class="color-dot dot-purple active" data-color="original"></span>
+                                <span class="color-dot dot-green" data-color="alt" title="Variante"></span>
+                            </div>
+
+                            <div class="produMeta">
+                                <span class="produPrice">34.50€</span>
+                                <button class="punk-btn">AÑADIR</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="grid-card" data-id="thresholl">
+                        <div class="contenedor-imagen">
+                            <img src="img/orange.png" alt="THRESHOLL">
+                        </div>
+                        <div class="produInfo">
+                            <h3 class="produName">THRESHOLL</h3>
+
+                            <div class="color-selector">
+                                <span class="color-dot dot-orange active" data-color="original"></span>
+                                <span class="color-dot dot-blue" data-color="alt" title="Variante"></span>
+                            </div>
+
+                            <div class="produMeta">
+                                <span class="produPrice">30.00€</span>
+                                <button class="punk-btn">AÑADIR</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+
+            <!-- SECCION DEL MODAL DEL CARRITO DE LA COMPRA -->
+            <section id="cart-modal" class="modal">
+                <a href="#" class="modal-overlay"></a> 
+                <div class="modal-content">
+                    <a href="#" class="close-btn">X</a>
+                    <h2 class="modal-title">TU COMPRA</h2>
+                    <div class="cart-items">
+                        <p class="empty-msg">La recolección está vacía...</p>
+                    </div>
+                    <div class="cart-footer">
+                        <span class="total">TOTAL: 0.00€</span>
+                        <button class="checkout-btn">COMPRAR</button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- FORMULARIO PARA LA SOLICITUD DE DISEÑO PERSONAL -->
+            <section id="crear" class="productos-secccion">
+                <div class="secccion-header">
+                    <h3 class="secccion-title">DISEÑO EXCLUSIVO</h3>
+                </div>
+                <div class="custom-promo">
+                    <p>¿No encuentras tu estilo? Créalo tú mismo en nuestro laboratorio.</p>
+                    <a href="#modal-diseno" class="shop">ABRIR LABORATORIO</a>
+                </div>
+            </section>
+
+            <section id="modal-diseno" class="modal">
+                <a href="#" class="modal-overlay"></a>
+                <div class="modal-content lab-modal">
+                    <a href="#" class="close-btn">X</a>
+                    <h2 class="modal-title">LABORATORIO</h2>
+                    
+                    <div class="lab-grid">
+                        <div class="preview-area">
+                            <img src="img/black.png" id="tshirt-preview" alt="Base">
+                            <img id="logo-preview" src="" class="logo-on-shirt">
+                        </div>
+
+                        <div class="controls-area">
+                            <h4>1. COLOR BASE</h4>
+                            <div class="color-selector">
+                                <span class="color-dot dot-black" onclick="changeBase('img/black.png')"></span>
+                                <span class="color-dot dot-white" onclick="changeBase('img/white.png')"></span>
+                            </div>
+
+                            <div class="personal">
+                                <p>Más colores disponibles pronto.</p>
+                            </div>
+
+                            <h4>2. TU LOGO</h4>
+                            <input type="file" id="upload-logo" hidden accept="image/*">
+                            <button class="punk-btn" onclick="document.getElementById('upload-logo').click()">SUBIR ARCHIVO</button>
+                            
+                            <div class="cart-footer" style="margin-top: 20px;">
+                                <span class="total">40.00€</span>
+                                <button class="checkout-btn" id="confirm-custom">AÑADIR A LA CESTA</button>
+                                <!-- ARREGLAR EL JS PARA QUE AÑADA SOLO UN PRECIO EN VEZ DE DOS QUE LOS AÑADE AUTOMATICO -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- JAVASCRIPT AÑADE LA ALERTA PERSONALIZADA AQUI -->
+            <div id="toast-container"></div>
+
+            <!-- SECCION DE CARACTERISTICAS -->
+            <section class="features-section">
+                <div class="secccion-header">
+                    <h3 class="secccion-title">NUSTRAS CARACTERISTICAS</h3>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h4>ENVÍO DIRECTO</h4>
+                        <p>Directo a tu guarida en 24/48h. Sin preguntas, sin demoras.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">♻️</div>
+                        <h4>ECO</h4>
+                        <p>Algodón 100% orgánico y materiales reciclados. Respetamos el planeta, no las normas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💀</div>
+                        <h4>DISEÑOS ÚNICOS</h4>
+                        <p>Ediciones limitadas. Si lo ves aquí, no lo verás en un escaparate aburrido.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💳</div>
+                        <h4>PAGO SEGURO</h4>
+                        <p>Encriptación de alto nivel. Tus datos están a salvo con la resistencia.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-column brand-info">
+                    <a href="#" class="logoThe">THE<span class="logoRiot">RIOT</span></a>
+                    <p class="footer-tagline">STAY CREATIVE.</p>
+                </div>
+
+                <div class="footer-column contact-info">
+                    <h4 class="footer-title">CONTACTO</h4>
+                    <p>📍 Comercio Online</p>
+                    <p>📞 +34 600 000 000</p>
+                    <p>✉️ riot@underworld.com</p>
+                </div>
+
+                <div class="footer-column social-links">
+                    <h4 class="footer-title">SÍGUENOS</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-btn">INSTAGRAM</a>
+                        <a href="#" class="social-btn">TWITTER</a>
+                        <a href="#" class="social-btn">FACEBOOK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>STAY CREATIVE &copy; THE RIOT</p>
+            </div>
+        </footer> 
+
+    </body>
+</html>
